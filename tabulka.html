@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>data</title>
+</head>
+<body>
+<h1>Data</h1>
+
+<!-- Table with Header, Footer, and Caption -->
+<table id="data" border="1">
+    <caption>Contact Information</caption>
+    <thead>
+    <tr>
+        <th>Jméno</th>
+        <th>Příjmení</th>
+        <th>Email</th>
+        <th>Telefon</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Rows will be added here by JavaScript -->
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="4">End of Contact Information</td>
+    </tr>
+    </tfoot>
+</table>
+
+<h2>Přidat nový kontakt</h2>
+
+<!-- Form to Add New Data -->
+<form>
+    <label for="first_name">Jméno:</label>
+    <input type="text" id="first_name" name="first_name" required><br>
+
+    <label for="last_name">Příjmení:</label>
+    <input type="text" id="last_name" name="last_name" required><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="phone">Telefon:</label>
+    <input type="tel" id="phone" name="phone" required><br>
+
+    <!-- Button to Add Row -->
+    <button type="button" onclick="addRow()">Přidej řádek</button>
+</form>
+
+<script>
+    var addRow = () => {
+        const table = document.getElementById("data");
+        const newRow = table.insertRow(-1);
+        ["phone", "email", "last_name", "first_name"].forEach((fieldName) => {
+            const newValue = document.getElementById(fieldName).value;
+            const newCell = newRow.insertCell(0);
+            let newText = document.createTextNode(newValue);
+            newCell.appendChild(newText);
+        });
+    };
+</script>
+</body>
+</html>
