@@ -11,8 +11,9 @@
 
 <h1>Data</h1>
 
-<!-- Table -->
+<!-- Table with Header, Footer, and Caption -->
 <table id="data">
+    <caption>Contact Information</caption>
     <thead>
     <tr>
         <th>Jméno</th>
@@ -21,26 +22,29 @@
         <th>Telefon</th>
     </tr>
     </thead>
-    <tbody></tbody>
+    <tbody>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="4">End of Contact Information</td>
+    </tr>
     </tfoot>
 </table>
 
 <h2>Přidat nový kontakt</h2>
 
-<!-- Form -->
+<!-- Form to Add New Data -->
 <form>
     <label for="first_name">Jméno:</label>
     <input type="text" id="first_name" name="first_name" required><br>
-
     <label for="last_name">Příjmení:</label>
     <input type="text" id="last_name" name="last_name" required><br>
-
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required><br>
-
     <label for="phone">Telefon:</label>
     <input type="tel" id="phone" name="phone" required><br>
 
+    <!-- Button to Add Row -->
     <button type="button" onclick="addRow()">Přidej řádek</button>
 </form>
 
@@ -49,6 +53,7 @@
         const table = document.getElementById("data");
         const newRow = table.insertRow(-1);
 
+        // Insert cells in correct order
         ["first_name", "last_name", "email", "phone"].forEach((fieldName, index) => {
             const newValue = document.getElementById(fieldName).value;
             const newCell = newRow.insertCell(index);
