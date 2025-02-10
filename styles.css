@@ -1,0 +1,73 @@
+/* Styl pro hlavičku a patičku tabulky */
+thead, tfoot {
+    font-weight: bold;
+    border: 2px solid black;
+}
+
+/* Styl pro sudé a liché řádky tabulky */
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* Hover efekt pro řádky tabulky */
+tbody tr:hover {
+    background-color: #ddd;
+}
+
+/* Skrytí rámečků pro jednotlivé buňky v těle tabulky */
+tbody td {
+    border: none;
+}
+
+/* Styl formuláře pomocí flexboxu */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Velká obrazovka (počítač) */
+@media (min-width: 1024px) {
+    form {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100vw;
+        height: 100vh;
+        align-items: center;
+    }
+}
+
+/* Střední obrazovka (tablet) */
+@media (min-width: 600px) and (max-width: 1023px) {
+    form {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    form div {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    form div:first-child {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    form div:last-child {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* Malá obrazovka (telefon) */
+@media (max-width: 599px) {
+    form {
+        flex-direction: column;
+    }
+}
