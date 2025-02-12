@@ -1,0 +1,126 @@
+/* Styl pro tabulku */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Styl pro hlavičku a patičku tabulky */
+thead, tfoot {
+    font-weight: bold;
+    border: 2px solid black;
+    background-color: #e0e0e0; /* Light gray background for better visibility */
+}
+
+/* Přidání rámečků pro hlavičku tabulky */
+thead tr, tfoot tr {
+    border: 2px solid black;
+}
+
+/* Styl pro jednotlivé buňky v hlavičce */
+th {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid black;
+}
+
+/* Styl pro patičku tabulky */
+tfoot td {
+    border-top: 2px solid black;
+    text-align: center;
+    padding: 8px;
+}
+
+/* Styl pro sudé a liché řádky tabulky */
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* Hover efekt pro řádky tabulky */
+tbody tr:hover {
+    background-color: #dcdcdc;
+}
+
+/* Skrytí rámečků pro jednotlivé buňky v těle tabulky */
+tbody td {
+    border: none;
+    padding: 8px;
+}
+
+/* === FORMULÁŘ === */
+
+/* Obecné styly pro formulář */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* Styl pro vstupní pole */
+input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+/* Tlačítko */
+button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* === RESPONSIVNÍ DESIGN === */
+
+/* Velká obrazovka (počítač) */
+@media (min-width: 1024px) {
+    form {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+    }
+}
+
+/* Střední obrazovka (tablet) */
+@media (min-width: 600px) and (max-width: 1023px) {
+    form {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    form input {
+        width: calc(50% - 10px);
+    }
+
+    form button {
+        width: 100%;
+    }
+}
+
+/* Malá obrazovka (telefon) */
+@media (max-width: 599px) {
+    form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    form input, form button {
+        width: 100%;
+    }
+}

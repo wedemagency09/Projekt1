@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>data</title>
+    <title>Data </title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
 <h1>Data</h1>
 
 <!-- Table with Header, Footer, and Caption -->
-<table id="data" border="1">
+<table id="data">
     <caption>Contact Information</caption>
     <thead>
     <tr>
@@ -21,7 +23,6 @@
     </tr>
     </thead>
     <tbody>
-    <!-- Rows will be added here by JavaScript -->
     </tbody>
     <tfoot>
     <tr>
@@ -36,13 +37,10 @@
 <form>
     <label for="first_name">Jméno:</label>
     <input type="text" id="first_name" name="first_name" required><br>
-
     <label for="last_name">Příjmení:</label>
     <input type="text" id="last_name" name="last_name" required><br>
-
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required><br>
-
     <label for="phone">Telefon:</label>
     <input type="tel" id="phone" name="phone" required><br>
 
@@ -51,16 +49,24 @@
 </form>
 
 <script>
-    var addRow = () => {
+    function addRow() {
         const table = document.getElementById("data");
         const newRow = table.insertRow(-1);
-        ["phone", "email", "last_name", "first_name"].forEach((fieldName) => {
+
+        // Insert cells in correct order
+        ["first_name", "last_name", "email", "phone"].forEach((fieldName, index) => {
             const newValue = document.getElementById(fieldName).value;
-            const newCell = newRow.insertCell(0);
-            let newText = document.createTextNode(newValue);
-            newCell.appendChild(newText);
+            const newCell = newRow.insertCell(index);
+            newCell.textContent = newValue;
         });
-    };
+
+        // Clear form fields after submission
+        document.getElementById("first_name").value = "";
+        document.getElementById("last_name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("phone").value = "";
+    }
 </script>
+
 </body>
 </html>
